@@ -35,5 +35,13 @@ cask "lazytrivy" do
     end
   end
 
+  
+  postflight do
+    # Remove quarantine attribute to avoid Gatekeeper issues
+    system_command "/usr/bin/xattr",
+                   args: ["-cr", "#{staged_path}/lazytrivy"],
+                   sudo: false
+  end
+
   # No zap stanza required
 end
