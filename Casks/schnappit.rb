@@ -21,7 +21,7 @@ cask "schnappit" do
   postflight do
     # Remove quarantine attribute to avoid Gatekeeper issues
     system_command "/usr/bin/xattr",
-                   args: ["-cr", "#{staged_path}/Schnappit.app"],
+                   args: ["-cr", "#{staged_path}/schnappit"],
                    sudo: false
   end
 
