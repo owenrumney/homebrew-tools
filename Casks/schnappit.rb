@@ -3,25 +3,21 @@ cask "schnappit" do
   name "schnappit"
   desc "A macOS screenshot utility"
   homepage "https://github.com/owenrumney/schnappit"
-  version "0.1.2"
+  version "0.1.5"
+
+  url "https://github.com/owenrumney/schnappit/releases/download/v#{version}/Schnappit_#{version}_macOS.dmg"
+  sha256 "a27f7ea9745c1c1b13b38af867030ab07ddfd5580e9b2fb6a3f0a8742ef5ad75"
 
   livecheck do
     skip "Auto-generated on release."
   end
 
-  binary "schnappit"
+  app "Schnappit.app"
 
-  on_macos do
-    on_arm do
-      url "https://github.com/owenrumney/schnappit/releases/download/v#{version}/schnappit_#{version}_darwin_arm64.zip"
-      sha256 "c35dbdb8e7e9f5afc1d2ec07b783d53b816b0809e2872e5d31477e2048909ceb"
-    end
-  end
-
-  postflight do
+  preflight do
     # Remove quarantine attribute to avoid Gatekeeper issues
     system_command "/usr/bin/xattr",
-                   args: ["-cr", "#{staged_path}/schnappit"],
+                   args: ["-cr", "#{staged_path}/Schnappit.app"],
                    sudo: false
   end
 
