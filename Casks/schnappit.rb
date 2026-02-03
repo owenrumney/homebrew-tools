@@ -6,7 +6,7 @@ cask "schnappit" do
   version "0.1.5"
 
   url "https://github.com/owenrumney/schnappit/releases/download/v#{version}/Schnappit_#{version}_macOS.dmg"
-  sha256 "a27f7ea9745c1c1b13b38af867030ab07ddfd5580e9b2fb6a3f0a8742ef5ad75"
+  sha256 "a27f7ea9745c1c1b13b38af867030ab07ddfd5580e9b2fb6a3f0a8742ef5ad75" 
 
   livecheck do
     skip "Auto-generated on release."
