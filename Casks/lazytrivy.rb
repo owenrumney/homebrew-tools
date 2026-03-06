@@ -3,7 +3,7 @@ cask "lazytrivy" do
   name "lazytrivy"
   desc "A simple CLI tool to run Trivy scans interactively with sensible defaults."
   homepage "https://github.com/owenrumney/lazytrivy"
-  version "1.3.1"
+  version "1.3.2"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,12 +12,12 @@ cask "lazytrivy" do
   on_macos do
     on_intel do
       url "https://github.com/owenrumney/lazytrivy/releases/download/v#{version}/lazytrivy-darwin-amd64"
-      sha256 "918b5d3c3514983c9cd1f2e8e5d1070b5f47116c57329c4151403ad8f94a1d8b"
+      sha256 "23a0fec9aa7bff1b82626a0b0e6a761e72fcb8fef4730a53391411260186c7bc"
       binary "lazytrivy-darwin-amd64", target: "lazytrivy"
     end
     on_arm do
       url "https://github.com/owenrumney/lazytrivy/releases/download/v#{version}/lazytrivy-darwin-arm64"
-      sha256 "983327820eb8937e09da877ed983e8977ffa23a5b7929cb144296732b28fa889"
+      sha256 "fefed1364643a66cda62de61340a6ab415e2a4507730915e548514b069e9d1a4"
       binary "lazytrivy-darwin-arm64", target: "lazytrivy"
     end
   end
@@ -25,12 +25,12 @@ cask "lazytrivy" do
   on_linux do
     on_intel do
       url "https://github.com/owenrumney/lazytrivy/releases/download/v#{version}/lazytrivy-linux-amd64"
-      sha256 "90dde168446d7ee92ec4c993cd7ad3c4ed8fa50723699d561248bcf4ea1e68e7"
+      sha256 "05a39ef9c73d3a2768fd80a38f4ed42560c958c0a0b731222671f85cae2fdd23"
       binary "lazytrivy-linux-amd64", target: "lazytrivy"
     end
     on_arm do
       url "https://github.com/owenrumney/lazytrivy/releases/download/v#{version}/lazytrivy-linux-arm64"
-      sha256 "faffba1d0bf92a022780049b64eb92b70162da251127e3e3ddbee89733389e9b"
+      sha256 "3cc5fbd8dda8c98ae8a0f71a1c7ec3faf468f6959a851aa4b83e00f9328eae14"
       binary "lazytrivy-linux-arm64", target: "lazytrivy"
     end
   end
