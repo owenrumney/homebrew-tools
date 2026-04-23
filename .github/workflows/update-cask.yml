@@ -1,0 +1,72 @@
+name: Update Cask
+
+on:
+  workflow_dispatch:
+    inputs:
+      project_name:
+        description: "Project name (must match a file in Casks/)"
+        required: true
+        type: string
+      version:
+        description: "New version (without v prefix, e.g. 1.2.3)"
+        required: true
+        type: string
+
+jobs:
+  update-cask:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update cask
+        env:
+          PROJECT: ${{ inputs.project_name }}
+          VERSION: ${{ inputs.version }}
+        run: |
+          set -euo pipefail
+
+          CASK_FILE="Casks/${PROJECT}.rb"
+          if [[ ! -f "$CASK_FILE" ]]; then
+            echo "::error::Cask file not found: $CASK_FILE"
+            exit 1
+          fi
+
+          # Update the version line
+          sed -i "s/^  version \".*\"/  version \"${VERSION}\"/" "$CASK_FILE"
+
+          # Extract all URLs (resolve #{version} to the actual version)
+          urls=$(grep -oP 'url "https://[^"]+' "$CASK_FILE" | sed 's/url "//' | sed "s/#{version}/${VERSION}/g")
+
+          # Download each URL and compute sha256, collecting them in order
+          checksums=()
+          for url in $urls; do
+            echo "Downloading: $url"
+            sha=$(curl -fsSL "$url" | sha256sum | awk '{print $1}')
+            echo "  sha256: $sha"
+            checksums+=("$sha")
+          done
+
+          # Replace sha256 values in order of appearance
+          i=0
+          while IFS= read -r line_num; do
+            sed -i "${line_num}s/sha256 \"[a-f0-9]\+\"/sha256 \"${checksums[$i]}\"/" "$CASK_FILE"
+            i=$((i + 1))
+          done < <(grep -n 'sha256 "' "$CASK_FILE" | cut -d: -f1)
+
+          echo "Updated $CASK_FILE to version $VERSION"
+          cat "$CASK_FILE"
+
+      - name: Commit and push
+        env:
+          PROJECT: ${{ inputs.project_name }}
+          VERSION: ${{ inputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "Casks/${PROJECT}.rb"
+          git diff --cached --quiet && { echo "No changes to commit"; exit 0; }
+          git commit -m "Update ${PROJECT} cask to version ${VERSION}"
+          git push
