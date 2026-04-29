@@ -2,7 +2,7 @@ cask "lazypprof" do
   name "lazypprof"
   desc "A keyboard-driven TUI for exploring Go pprof profiles."
   homepage "https://github.com/owenrumney/lazypprof"
-  version "0.0.2"
+  version "0.0.3"
 
   livecheck do
     skip "Auto-generated on release."
@@ -11,12 +11,12 @@ cask "lazypprof" do
   on_macos do
     on_intel do
       url "https://github.com/owenrumney/lazypprof/releases/download/v#{version}/lazypprof_darwin_amd64.tar.gz"
-      sha256 "db20ff8e0a29c64b14f6d8e1adf9b3e9b58065a8a0c1e875fbfb7835a97172e0"
+      sha256 "466c4df55c2562e512f48a4e30cb339f0c2e7643d19fa45c36c499dcde292046"
       binary "lazypprof"
     end
     on_arm do
       url "https://github.com/owenrumney/lazypprof/releases/download/v#{version}/lazypprof_darwin_arm64.tar.gz"
-      sha256 "58ea868ddf620dab11293e6fef180a4ae872f578cf3767a7846b3f48d2c781ea"
+      sha256 "f4087cd6c76bcef04c54dfea5bb761bc773a010ecb50df428f0046e8d7f7ced2"
       binary "lazypprof"
     end
   end
@@ -24,12 +24,12 @@ cask "lazypprof" do
   on_linux do
     on_intel do
       url "https://github.com/owenrumney/lazypprof/releases/download/v#{version}/lazypprof_linux_amd64.tar.gz"
-      sha256 "21e6683946071f12fa81f819b49c838e45d1076bd540f725a4ba4d582031bea5"
+      sha256 "0979a121f3348a4d975078d653d8f73c05fa8f26c9e444c2e2965cf246022ffa"
       binary "lazypprof"
     end
     on_arm do
       url "https://github.com/owenrumney/lazypprof/releases/download/v#{version}/lazypprof_linux_arm64.tar.gz"
-      sha256 "36773e52d516c2fc9909bff1cf2fc0493d5493f7b2b12e17dd348f985f3633b7"
+      sha256 "3daa52bb9c1e2eff6a82b831f7d9d5462a5c47a068a90b4b70a03c6dbf1542b3"
       binary "lazypprof"
     end
   end
