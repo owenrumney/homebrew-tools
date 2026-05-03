@@ -28,7 +28,7 @@ cask "mdview" do
       binary "lazypprof"
     end
     on_arm do
-      url "https://github.com/owenrumney/mdview/releases/download/v#{version}/lmdview_linux_arm64.tar.gz"
+      url "https://github.com/owenrumney/mdview/releases/download/v#{version}/mdview_linux_arm64.tar.gz"
       sha256 "3daa52bb9c1e2eff6a82b831f7d9d5462a5c47a068a90b4b70a03c6dbf1542b3"
       binary "lazypprof"
     end
