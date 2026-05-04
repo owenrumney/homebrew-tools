@@ -2,7 +2,7 @@ cask "mdview" do
   name "mdview"
   desc "Render Markdown with Mermaid etc as html with live updating."
   homepage "https://github.com/owenrumney/mdview"
-  version "0.1.0"
+  version "0.1.1"
 
   livecheck do
     skip "Auto-generated on release."
@@ -11,12 +11,12 @@ cask "mdview" do
   on_macos do
     on_intel do
       url "https://github.com/owenrumney/mdview/releases/download/v#{version}/mdview_darwin_amd64.tar.gz"
-      sha256 "8634f902418fa9d14836d371023ca6d162b06ccf963b7687d158d5de429f88c9"
+      sha256 "cf3d2ebfde42bde01af639db42dfb33cee33c6661f12b96b15013dd512dd4887"
       binary "mdview"
     end
     on_arm do
       url "https://github.com/owenrumney/mdview/releases/download/v#{version}/mdview_darwin_arm64.tar.gz"
-      sha256 "035bad1311f244f7210b8a3c265aea70015bfba5651fbf4b3838bde9675ff357"
+      sha256 "083a1b78061aeb8dd8d1bf00cfbc955e0ba3de303f109a985149cf5cb4f56fd3"
       binary "mdview"
     end
   end
@@ -24,12 +24,12 @@ cask "mdview" do
   on_linux do
     on_intel do
       url "https://github.com/owenrumney/mdview/releases/download/v#{version}/mdview_linux_amd64.tar.gz"
-      sha256 "961828fd4d97f8ed465ddd876464372726b41401a99ee8e6786f31afcda92796"
+      sha256 "fd1e7946258c97f22b31ab9e11b4af1a8a35348ff994772555e4aea167c6b03c"
       binary "mdview"
     end
     on_arm do
       url "https://github.com/owenrumney/mdview/releases/download/v#{version}/mdview_linux_arm64.tar.gz"
-      sha256 "3090a8661e0258e652c1d56c468735b4705648a3f6b9bda9cbae1db67a5cb5d2"
+      sha256 "ea3c7bc634ee1c7d4651c2dcac2524bad31bae93475d8bda8812e5c67bf3557f"
       binary "mdview"
     end
   end
