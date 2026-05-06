@@ -17,7 +17,7 @@ cask "watchtower" do
     on_arm do
       url "https://github.com/owenrumney/watchtower/releases/download/v#{version}/watchtower_darwin_arm64.tar.gz"
       sha256 "34a1d19a58b261f900f1f2c9488af308b1ef45d1b33d64284baefec2383ddbf2"
-      binary "mdview"
+      binary "watchtower"
     end
   end
 
