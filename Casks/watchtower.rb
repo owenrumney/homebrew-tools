@@ -2,7 +2,7 @@ cask "watchtower" do
   name "watchtower"
   desc "Simple hook telemetry Dashboard for Claude Code."
   homepage "https://github.com/owenrumney/watchtower"
-  version "0.0.1"
+  version "0.0.2"
 
   livecheck do
     skip "Auto-generated on release."
@@ -11,12 +11,12 @@ cask "watchtower" do
   on_macos do
     on_intel do
       url "https://github.com/owenrumney/watchtower/releases/download/v#{version}/watchtower_darwin_amd64.tar.gz"
-      sha256 "4c4246e85a88827fea486dba11e89a2d1b5bb6f11bc3b89257ea69d653dc9a95"
+      sha256 "498a7b098f1d6f7b777541c1b326684f937c3240996e36f290b57b08a603042f"
       binary "watchtower"
     end
     on_arm do
       url "https://github.com/owenrumney/watchtower/releases/download/v#{version}/watchtower_darwin_arm64.tar.gz"
-      sha256 "bbc15b16b0b37c3d9a51f92d89e31efbada1cd4b7239f21901cb35f757b756c4"
+      sha256 "9a60db9d2c5c2164e5f14dc0ba002b2d7421a62b9c21ca4429a8d8b886fcc00a"
       binary "watchtower"
     end
   end
@@ -24,12 +24,12 @@ cask "watchtower" do
   on_linux do
     on_intel do
       url "https://github.com/owenrumney/watchtower/releases/download/v#{version}/watchtower_linux_amd64.tar.gz"
-      sha256 "89dd52e51264cc63911cdd0b023fe3989d68981bbe66fadfe179cda153e00c2a"
+      sha256 "5abceb94367f51ad4b8cec616e2a48b5e68e69e45de30671f76c04e73c83cd36"
       binary "watchtower"
     end
     on_arm do
       url "https://github.com/owenrumney/watchtower/releases/download/v#{version}/watchtower_linux_arm64.tar.gz"
-      sha256 "2570c31a4474572df92eb8e39918c182b95f808c8c14a3eccf93717301d44875"
+      sha256 "7774f02c4285bd94e89e2fcb37e46d315a7dcea30b0cfab38538c7767b47aee5"
       binary "watchtower"
     end
   end
